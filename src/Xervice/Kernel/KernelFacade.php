@@ -6,7 +6,6 @@ namespace Xervice\Kernel;
 
 use Xervice\Core\Facade\AbstractFacade;
 use Xervice\Kernel\Business\Service\ServiceInterface;
-use Xervice\Kernel\Business\Service\ServiceProviderInterface;
 
 /**
  * @method \Xervice\Kernel\KernelFactory getFactory()
