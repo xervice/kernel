@@ -63,3 +63,44 @@ try {
     $locator->exceptionHandler()->facade()->handleException($e);
 }
 ```
+
+Own services
+----------------
+To create an own service you have to implement the ServiceInterface.
+
+***Example***
+```php
+<?php
+
+namespace App\MyModule\Business\Kernel;
+
+use Xervice\Core\Locator\AbstractWithLocator;
+use Xervice\Kernel\Business\Service\ServiceInterface;
+use Xervice\Kernel\Business\Service\ServiceProviderInterface;
+
+/**
+ * @method \App\MyModule\MyModuleFacade getFacade()
+ */
+class MyService extends AbstractWithLocator implements ServiceInterface
+{
+    /**
+     * @param \Xervice\Kernel\Business\Service\ServiceProviderInterface $serviceProvider
+     *
+     * @throws \Core\Locator\Dynamic\ServiceNotParseable
+     */
+    public function boot(ServiceProviderInterface $serviceProvider): void
+    {
+        $this->getFacade()->initMyModule();
+    }
+
+    /**
+     * @param \Xervice\Kernel\Business\Service\ServiceProviderInterface $serviceProvider
+     *
+     * @throws \Core\Locator\Dynamic\ServiceNotParseable
+     */
+    public function execute(ServiceProviderInterface $serviceProvider): void
+    {
+        $this->getFacade()->runMyModule();
+    }
+}
+```
