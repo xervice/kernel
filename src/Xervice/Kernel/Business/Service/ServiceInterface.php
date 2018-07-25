@@ -4,7 +4,7 @@
 namespace Xervice\Kernel\Business\Service;
 
 
-interface ServiceInterface
+interface ServiceInterface extends BootInterface, ExecuteInterface
 {
 
 }

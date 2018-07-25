@@ -46,18 +46,18 @@ class ServiceProvider implements ServiceProviderInterface
     /**
      * @param string $serviceName
      *
-     * @return null|\Xervice\Kernel\Business\Service\ServiceInterface
+     * @return null|\Xervice\Kernel\Business\Service\ClearServiceInterface
      */
-    public function get(string $serviceName): ?ServiceInterface
+    public function get(string $serviceName): ?ClearServiceInterface
     {
         return $this->serviceCollection[$serviceName] ?? null;
     }
 
     /**
      * @param string $serviceName
-     * @param \Xervice\Kernel\Business\Service\ServiceInterface $service
+     * @param \Xervice\Kernel\Business\Service\ClearServiceInterface $service
      */
-    public function set(string $serviceName, ServiceInterface $service): void
+    public function set(string $serviceName, ClearServiceInterface $service): void
     {
         $this->serviceCollection[$serviceName] = $service;
     }

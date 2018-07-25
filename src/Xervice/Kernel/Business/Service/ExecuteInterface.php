@@ -4,7 +4,7 @@
 namespace Xervice\Kernel\Business\Service;
 
 
-interface ExecuteInterface extends ServiceInterface
+interface ExecuteInterface extends ClearServiceInterface
 {
     /**
      * @param \Xervice\Kernel\Business\Service\ServiceProviderInterface $serviceProvider

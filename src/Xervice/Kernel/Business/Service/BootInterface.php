@@ -4,7 +4,7 @@
 namespace Xervice\Kernel\Business\Service;
 
 
-interface BootInterface extends ServiceInterface
+interface BootInterface extends ClearServiceInterface
 {
     /**
      * @param \Xervice\Kernel\Business\Service\ServiceProviderInterface $serviceProvider
