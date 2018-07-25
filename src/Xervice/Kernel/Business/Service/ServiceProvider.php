@@ -28,14 +28,18 @@ class ServiceProvider implements ServiceProviderInterface
     public function boot(): void
     {
         foreach ($this->serviceCollection as $service) {
-            $service->boot($this);
+            if ($service instanceof BootInterface) {
+                $service->boot($this);
+            }
         }
     }
 
     public function execute(): void
     {
         foreach ($this->serviceCollection as $service) {
-            $service->execute($this);
+            if ($service instanceof ExecuteInterface) {
+                $service->execute($this);
+            }
         }
     }
 

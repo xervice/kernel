@@ -4,10 +4,11 @@
 namespace XerviceTest\Kernel\Service;
 
 
-use Xervice\Kernel\Business\Service\ServiceInterface;
+use Xervice\Kernel\Business\Service\BootInterface;
+use Xervice\Kernel\Business\Service\ExecuteInterface;
 use Xervice\Kernel\Business\Service\ServiceProviderInterface;
 
-class TestService implements ServiceInterface
+class TestService implements BootInterface, ExecuteInterface
 {
     /**
      * @var string
