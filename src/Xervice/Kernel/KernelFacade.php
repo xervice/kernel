@@ -5,6 +5,7 @@ namespace Xervice\Kernel;
 
 
 use Xervice\Core\Facade\AbstractFacade;
+use Xervice\Kernel\Business\Service\ClearServiceInterface;
 use Xervice\Kernel\Business\Service\ServiceInterface;
 
 /**
@@ -27,7 +28,7 @@ class KernelFacade extends AbstractFacade
      *
      * @return \Xervice\Kernel\Business\Service\ServiceInterface
      */
-    public function getService(string $serviceName): ServiceInterface
+    public function getService(string $serviceName): ClearServiceInterface
     {
         return $this->getFactory()->getServiceProvider()->get($serviceName);
     }
