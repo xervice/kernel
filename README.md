@@ -24,8 +24,6 @@ You can add your services to the kernel with extending the dependency provider i
 namespace App\Kernel;
 
 use Xervice\Kernel\KernelDependencyProvider as XerviceKernelDependencyProvider;
-use Xervice\Core\Dependency\DependencyProviderInterface;
-use Xervice\Core\Dependency\Provider\AbstractProvider;
 
 class KernelDependencyProvider extends XerviceKernelDependencyProvider
 {
@@ -66,7 +64,7 @@ try {
 
 Own services
 ----------------
-To create an own service you have to implement the ServiceInterface.
+To create an own service you have to implement the BootInterface and/or the ExecuteInterface.
 
 ***Example***
 ```php
@@ -74,33 +72,27 @@ To create an own service you have to implement the ServiceInterface.
 
 namespace App\MyModule\Business\Kernel;
 
-use Xervice\Core\Locator\AbstractWithLocator;
-use Xervice\Kernel\Business\Service\ServiceInterface;
-use Xervice\Kernel\Business\Service\ServiceProviderInterface;
+use Xervice\Kernel\Business\Model\Service\ServiceProviderInterface;
+use Xervice\Kernel\Business\Plugin\BootInterface;
+use Xervice\Kernel\Business\Plugin\ExecuteInterface;
 
-/**
- * @method \App\MyModule\MyModuleFacade getFacade()
- */
-class MyService extends AbstractWithLocator implements ServiceInterface
+class MyService implements BootInterface, ExecuteInterface
 {
     /**
-     * @param \Xervice\Kernel\Business\Service\ServiceProviderInterface $serviceProvider
-     *
-     * @throws \Core\Locator\Dynamic\ServiceNotParseable
+     * @param \Xervice\Kernel\Business\Model\Service\ServiceProviderInterface $serviceProvider
      */
     public function boot(ServiceProviderInterface $serviceProvider): void
     {
-        $this->getFacade()->initMyModule();
+        // boot something
     }
 
     /**
-     * @param \Xervice\Kernel\Business\Service\ServiceProviderInterface $serviceProvider
-     *
-     * @throws \Core\Locator\Dynamic\ServiceNotParseable
+     * @param \Xervice\Kernel\Business\Model\Service\ServiceProviderInterface $serviceProvider
      */
     public function execute(ServiceProviderInterface $serviceProvider): void
     {
-        $this->getFacade()->runMyModule();
+        // execute something
     }
+
 }
 ```

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Xervice\Kernel\Business\Service;
+namespace Xervice\Kernel\Business\Plugin;
 
 
 interface ClearServiceInterface

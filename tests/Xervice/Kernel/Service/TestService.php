@@ -4,9 +4,10 @@
 namespace XerviceTest\Kernel\Service;
 
 
-use Xervice\Kernel\Business\Service\BootInterface;
-use Xervice\Kernel\Business\Service\ExecuteInterface;
-use Xervice\Kernel\Business\Service\ServiceProviderInterface;
+
+use Xervice\Kernel\Business\Model\Service\ServiceProviderInterface;
+use Xervice\Kernel\Business\Plugin\BootInterface;
+use Xervice\Kernel\Business\Plugin\ExecuteInterface;
 
 class TestService implements BootInterface, ExecuteInterface
 {
@@ -15,11 +16,17 @@ class TestService implements BootInterface, ExecuteInterface
      */
     public $test;
 
+    /**
+     * @param \Xervice\Kernel\Business\Model\Service\ServiceProviderInterface $serviceProvider
+     */
     public function boot(ServiceProviderInterface $serviceProvider): void
     {
         $this->test = 'test';
     }
 
+    /**
+     * @param \Xervice\Kernel\Business\Model\Service\ServiceProviderInterface $serviceProvider
+     */
     public function execute(ServiceProviderInterface $serviceProvider): void
     {
         $this->test = 'test.test';

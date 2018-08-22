@@ -1,14 +1,15 @@
 <?php
 
 
-namespace Xervice\Kernel;
+namespace Xervice\Kernel\Business;
 
 
-use Xervice\Core\Factory\AbstractFactory;
-use Xervice\Kernel\Business\Service\ServiceProvider;
-use Xervice\Kernel\Business\Service\ServiceProviderInterface;
+use Xervice\Core\Business\Model\Factory\AbstractBusinessFactory;
+use Xervice\Kernel\Business\Model\Service\ServiceProvider;
+use Xervice\Kernel\Business\Model\Service\ServiceProviderInterface;
+use Xervice\Kernel\KernelDependencyProvider;
 
-class KernelFactory extends AbstractFactory
+class KernelBusinessFactory extends AbstractBusinessFactory
 {
     /**
      * @var ServiceProviderInterface
@@ -16,7 +17,7 @@ class KernelFactory extends AbstractFactory
     private $serviceProvider;
 
     /**
-     * @return \Xervice\Kernel\Business\Service\ServiceProviderInterface
+     * @return \Xervice\Kernel\Business\Model\Service\ServiceProviderInterface
      */
     public function createServiceProvider(): ServiceProviderInterface
     {
@@ -26,7 +27,7 @@ class KernelFactory extends AbstractFactory
     }
 
     /**
-     * @return \Xervice\Kernel\Business\Service\ServiceProviderInterface
+     * @return \Xervice\Kernel\Business\Model\Service\ServiceProviderInterface
      */
     public function getServiceProvider(): ServiceProviderInterface
     {

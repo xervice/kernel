@@ -1,15 +1,12 @@
 <?php
 
+namespace Xervice\Kernel\Business;
 
-namespace Xervice\Kernel;
-
-
-use Xervice\Core\Facade\AbstractFacade;
-use Xervice\Kernel\Business\Service\ClearServiceInterface;
-use Xervice\Kernel\Business\Service\ServiceInterface;
+use Xervice\Core\Business\Model\Facade\AbstractFacade;
+use Xervice\Kernel\Business\Model\Service\ClearServiceInterface;
 
 /**
- * @method \Xervice\Kernel\KernelFactory getFactory()
+ * @method \Xervice\Kernel\Business\KernelBusinessFactory getFactory()
  */
 class KernelFacade extends AbstractFacade
 {
@@ -26,7 +23,7 @@ class KernelFacade extends AbstractFacade
     /**
      * @param string $serviceName
      *
-     * @return \Xervice\Kernel\Business\Service\ServiceInterface
+     * @return \Xervice\Kernel\Business\Model\Service\ClearServiceInterface
      */
     public function getService(string $serviceName): ClearServiceInterface
     {

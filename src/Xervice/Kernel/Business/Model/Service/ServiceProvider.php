@@ -1,13 +1,18 @@
 <?php
 
 
-namespace Xervice\Kernel\Business\Service;
+namespace Xervice\Kernel\Business\Model\Service;
 
+
+
+use Xervice\Kernel\Business\Plugin\BootInterface;
+use Xervice\Kernel\Business\Plugin\ClearServiceInterface;
+use Xervice\Kernel\Business\Plugin\ExecuteInterface;
 
 class ServiceProvider implements ServiceProviderInterface
 {
     /**
-     * @var \Xervice\Kernel\Business\Service\ServiceInterface[]
+     * @var \Xervice\Kernel\Business\Model\Service\ServiceInterface[]
      */
     private $serviceCollection;
 
@@ -46,7 +51,7 @@ class ServiceProvider implements ServiceProviderInterface
     /**
      * @param string $serviceName
      *
-     * @return null|\Xervice\Kernel\Business\Service\ClearServiceInterface
+     * @return null|\Xervice\Kernel\Business\Plugin\ClearServiceInterface
      */
     public function get(string $serviceName): ?ClearServiceInterface
     {
@@ -55,7 +60,7 @@ class ServiceProvider implements ServiceProviderInterface
 
     /**
      * @param string $serviceName
-     * @param \Xervice\Kernel\Business\Service\ClearServiceInterface $service
+     * @param \Xervice\Kernel\Business\Plugin\ClearServiceInterface $service
      */
     public function set(string $serviceName, ClearServiceInterface $service): void
     {

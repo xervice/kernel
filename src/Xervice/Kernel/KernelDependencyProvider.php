@@ -1,27 +1,22 @@
 <?php
 
-
 namespace Xervice\Kernel;
 
+use Xervice\Core\Business\Model\Dependency\DependencyContainerInterface;
+use Xervice\Core\Business\Model\Dependency\Provider\AbstractDependencyProvider;
 
-use Xervice\Core\Dependency\DependencyProviderInterface;
-use Xervice\Core\Dependency\Provider\AbstractProvider;
 
-/**
- * @method \Xervice\Core\Locator\Locator getLocator()
- */
-class KernelDependencyProvider extends AbstractProvider
+class KernelDependencyProvider extends AbstractDependencyProvider
 {
     public const SERVICES = 'services';
 
-    /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
-     */
-    public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
+    public function handleDependencies(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $dependencyProvider[self::SERVICES] = function () {
+        $container[self::SERVICES] = function () {
             return $this->getServiceList();
         };
+
+        return $container;
     }
 
     /**
