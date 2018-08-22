@@ -3,7 +3,7 @@
 namespace Xervice\Kernel\Business;
 
 use Xervice\Core\Business\Model\Facade\AbstractFacade;
-use Xervice\Kernel\Business\Model\Service\ClearServiceInterface;
+use Xervice\Kernel\Business\Plugin\ClearServiceInterface;
 
 /**
  * @method \Xervice\Kernel\Business\KernelBusinessFactory getFactory()
@@ -23,7 +23,7 @@ class KernelFacade extends AbstractFacade
     /**
      * @param string $serviceName
      *
-     * @return \Xervice\Kernel\Business\Model\Service\ClearServiceInterface
+     * @return \Xervice\Kernel\Business\Plugin\ClearServiceInterface
      */
     public function getService(string $serviceName): ClearServiceInterface
     {
