@@ -23,9 +23,9 @@ class KernelFacade extends AbstractFacade
     /**
      * @param string $serviceName
      *
-     * @return \Xervice\Kernel\Business\Plugin\ClearServiceInterface
+     * @return null|\Xervice\Kernel\Business\Plugin\ClearServiceInterface
      */
-    public function getService(string $serviceName): ClearServiceInterface
+    public function getService(string $serviceName): ?ClearServiceInterface
     {
         return $this->getFactory()->getServiceProvider()->get($serviceName);
     }
